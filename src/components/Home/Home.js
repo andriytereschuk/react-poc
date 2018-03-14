@@ -18,6 +18,10 @@ function Home(props) {
       <h3>{props.dumbService.getHelloPhrase()}</h3>
       <h3>From config: {appConfig.baseUrl}</h3>
       <CounterContainer />
+      {/* <button onClick={props.notificationService.showNotify()}>
+        show notification
+      </button> */}
+      <div>{props.notificationService.showNotify()}</div>
     </div>
   );
 }
@@ -25,9 +29,16 @@ function Home(props) {
 Home.propTypes = {
   dumbService: PropTypes.shape({
     getHelloPhrase: PropTypes.func
+  }).isRequired,
+  notificationService: PropTypes.shape({
+    showNotify: PropTypes.func
   }).isRequired
 };
 
-export default withWire(Home, ['dumbService'], dumbService => (
-  { dumbService }
-));
+export default withWire(
+  Home,
+  ['dumbService', 'notificationService'],
+  (dumbService, notificationService) => (
+    { dumbService, notificationService }
+  )
+);
