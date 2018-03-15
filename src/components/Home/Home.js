@@ -18,10 +18,11 @@ function Home(props) {
       <h3>{props.dumbService.getHelloPhrase()}</h3>
       <h3>From config: {appConfig.baseUrl}</h3>
       <CounterContainer />
-      {/* <button onClick={props.notificationService.showNotify()}>
+      <button
+        onClick={props.notificationService.showNotify}
+      >
         show notification
-      </button> */}
-      <div>{props.notificationService.showNotify()}</div>
+      </button>
     </div>
   );
 }
