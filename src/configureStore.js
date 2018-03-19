@@ -1,7 +1,7 @@
 
 import { createStore } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
-import rootReducer from './reducers/rootReducer';
+import rootReducer from './rootReducer';
 
 function configureStore() {
   return createStore(

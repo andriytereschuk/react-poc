@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CounterContainer from './CounterContainer/CounterContainer';
-import withWire from '../common/hocs/withWire';
 import appConfig from '../../config/appConfig';
 import './Home.scss';
+import CounterContainer from './components/CounterContainer/CounterContainer';
+import Users from './components/Users/Users';
+import withWire from '../common/hocs/withWire';
 
 function Home(props) {
   return (
@@ -21,6 +22,9 @@ function Home(props) {
       <button onClick={props.notificationService.error}>
         show notification
       </button>
+      <div className="row row-center">
+        <Users />
+      </div>
     </div>
   );
 }

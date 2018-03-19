@@ -1,6 +1,10 @@
 import Notifications from 'react-notification-system-redux';
 import Store from '../configureStore';
 
+// const defaultParams = {
+
+// };
+
 class NotificationService {
   error() {
     // mocked param

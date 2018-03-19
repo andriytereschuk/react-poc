@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
-import Notifications from 'react-notification-system-redux';
-import logo from '../../logo.svg';
-import Home from '../Home/Home';
-import Feedback from '../Feedback/Feedback';
+import logo from '../logo.svg';
+import Home from './Home/Home';
+import Feedback from './Feedback/Feedback';
+import Notification from './common/notification/Notification';
 import dependencies, { registerDependencies } from './dependencies';
 import './App.scss';
 
@@ -18,8 +17,6 @@ class App extends Component {
     return dependencies;
   }
   render() {
-    const { notifications } = this.props;
-
     return (
       <div className="App">
         <header className="App-header">
@@ -32,7 +29,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/feedback" component={Feedback} />
         </main>
-        <Notifications notifications={notifications} />
+        <Notification />
       </div>
     );
   }
@@ -44,8 +41,4 @@ App.childContextTypes = {
   register: PropTypes.func
 };
 
-App.propTypes = PropTypes.shape({
-  notifications: PropTypes.array
-}).isRequired;
-
-export default connect(state => ({ notifications: state.notifications }))(App);
+export default App;
